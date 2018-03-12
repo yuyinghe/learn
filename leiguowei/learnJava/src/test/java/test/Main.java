@@ -17,7 +17,6 @@ public class Main implements Cloneable{
 
         Child[] children = (Child[]) parents;
 
-        Stream
         System.out.println(children[0]);
     }
 
