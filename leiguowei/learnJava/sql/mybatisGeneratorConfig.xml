@@ -64,13 +64,13 @@
         <table schema="library" tableName="book" domainObjectName="BookDO">
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>
-        <table schema="library" tableName="user" domainObjectName="userDO">
+        <table schema="library" tableName="user" domainObjectName="UserDO">
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>
-        <table schema="library" tableName="repository" domainObjectName="repositoryDO">
+        <table schema="library" tableName="repository" domainObjectName="RepositoryDO">
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>
-        <table schema="library" tableName="borrow_record" domainObjectName="borrowRecordDO">
+        <table schema="library" tableName="borrow_record" domainObjectName="BorrowRecordDO">
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>
     </context>

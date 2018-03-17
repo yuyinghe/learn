@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class borrowRecordDO {
+public class BorrowRecordDO {
     /**
      * 借阅信息的ID
      */

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class repositoryDO {
+public class RepositoryDO {
     /**
      * 自增主键，无意义
      */

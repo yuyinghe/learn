@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class userDO {
+public class UserDO {
     /**
      * 自增ID，无实际意义
      */
