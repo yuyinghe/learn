@@ -1,5 +1,6 @@
 package cn.xf.learn.domin;
 
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,34 +10,29 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookDO {
+public class StroageDO {
     /**
-     * 
+     * 无用序列
      */
-    private Integer id;
+    private Long id;
 
     /**
-     * 
+     * 具体位置
      */
-    private String name;
+    private String sLocation;
 
     /**
-     * 
+     * 是否存在
      */
-    private String author;
+    private Byte sExist;
 
     /**
-     * 
+     * 书名
      */
-    private String catalogue;
+    private String sName;
 
     /**
-     * 
+     * 购买时间
      */
-    private String introduction;
-
-    /**
-     * 
-     */
-    private Integer mac;
+    private Date sDate;
 }
