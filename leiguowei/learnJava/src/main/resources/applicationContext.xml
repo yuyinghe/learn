@@ -53,6 +53,8 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+    <bean id="exceptionHandler" class="cn.lgw.learn.exception.CommonExceptionHandler"/>
+
     <mvc:annotation-driven>
         <!-- 消息转换器 -->
         <mvc:message-converters>
