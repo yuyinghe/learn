@@ -1,19 +1,9 @@
-package cn.lgw.learn.domain;
+package cn.lgw.learn.to.resp;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class UserDO {
-    /**
-     * 自增ID，无实际意义
-     */
-    private Long id;
+public class UserInfoTO {
 
     /**
      * 用户姓名
@@ -34,11 +24,6 @@ public class UserDO {
      * 用户名
      */
     private String username;
-
-    /**
-     * 用户密码
-     */
-    private String password;
 
     /**
      * 用户性别。0->男；1->女；
