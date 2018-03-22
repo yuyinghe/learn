@@ -3,13 +3,14 @@ package cn.lgw.learn.to.req;
 import lombok.Data;
 
 @Data
-public class UserRegisterReq {
-    private String name;
-    private String username;
+public class UserUpdateReq {
     private String password;
-    private String stuId;
+    private String name;
     private Integer sex;
     private Integer school;
     private Integer grade;
     private String phone;
+    private Integer status;
+    private Integer borrowAmount;
+    private Integer canBorrowAmount;
 }
