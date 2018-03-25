@@ -1,5 +1,7 @@
 package cn.lgw.learn.annotation;
 
+import cn.lgw.learn.enums.RoleEnum;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -15,5 +17,5 @@ public @interface Auth {
     /**
      * 哪些角色CODE可以访问
      */
-    String[] roles();
+    RoleEnum[] roles();
 }
