@@ -1,87 +1,31 @@
 package cn.hyy.learn.service;
 
 import cn.hyy.learn.domain.BookDO;
-import cn.hyy.learn.domain.condition.BookCondition;
-import cn.hyy.learn.mapper.BookMapper;
-import cn.hyy.learn.vo.Req;
-import org.springframework.stereotype.Service;
+import cn.hyy.learn.vo.BookReq;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.List;
-import java.util.concurrent.locks.Condition;
 
 /**
- * Created by heyuying on 18-1-26
+ * Created by heyuying on 18-3-18
  */
 
-@Service
-public class BookService {
-    @Resource
-    private BookMapper bookMapper;
-
-
-
+public interface BookService {
     //查询全部书籍
-    public List<BookDO> getAllBooks(int pageSize, int maxPageCount) {
-        return bookMapper.selectByExample(new BookCondition());
-    }
-
+    List<BookDO> getAllBooks(int pageSize, int maxPageCount);
     //按书名查询书籍
-    public List<BookDO> getSelectBooks(String name) {
-        BookCondition example = new BookCondition();
-        example.createCriteria().andNameEqualTo(name);
-        return bookMapper.selectByExample(example);
-    }
-
+    List<BookDO> getSelectBooks(String name);
     //根据id查询书籍
-    public BookDO selectByPrimaryKey(long id) {
-        return bookMapper.selectByPrimaryKey(id);
-
-    }
-
-    //按id查询多本书籍
-    public List<BookDO> getSelectBooksById(long id) {
-        BookCondition example = new BookCondition();
-        example.createCriteria().andIdGreaterThan(id);
-        return bookMapper.selectByExample(example);
-    }
-
+    BookDO selectByPrimaryKey(long id);
+    //按书籍编号查询
+    List<BookDO> getSelectBooksByBookId(String bookId);
     //整本书插入
-    public int insert(Req req) {
-        BookDO bookDO = new BookDO();
-        bookDO.setName(req.getName());
-        bookDO.setAuthor(req.getAuthor());
-        bookDO.setCatalogue(req.getCatalogue());
-        bookDO.setBrief(req.getBrief());
-        return bookMapper.insert(bookDO);
-    }
-
+    int insert(BookReq req);
     //更新
-    public int update(Req req) {
-        BookDO bookDO = selectByPrimaryKey(req.getId());//先找到要更新的书籍
-        if (req.getName() != null) {
-            bookDO.setName(req.getName());
-        }
-        if (req.getAuthor() != null) {
-            bookDO.setAuthor(req.getAuthor());
-        }
-        if (req.getCatalogue() != null) {
-            bookDO.setCatalogue(req.getCatalogue());
-        }
-        if (req.getBrief()!=null) {
-            bookDO.setBrief(req.getBrief());
-        }
-        return bookMapper.updateByPrimaryKey(bookDO);
-    }
-
-
-
+    int update(BookReq req);
 
     //根据ID删除一本书
-    public int deleteByPrimaryKey(long id) {
-        return bookMapper.deleteByPrimaryKey(id);
-    }
-
-
-
+    int deleteByPrimaryKey(long id);
+    //根据书籍编号删除书籍
+    int deleteByBookId(String bookId);
 }

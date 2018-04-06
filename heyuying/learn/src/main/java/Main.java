@@ -1,10 +1,13 @@
 import cn.hyy.learn.SpringTest;
 import cn.hyy.learn.domain.BookDO;
 import cn.hyy.learn.domain.condition.BookCondition;
+import cn.hyy.learn.mapper.BookMapper;
+import cn.hyy.learn.vo.BookReq;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,7 +33,7 @@ public class Main {
                 //System.out.println(springTest.selectByPrimaryKey(scanner.nextLong()));
                 BookCondition example = new BookCondition() ;
                 BookCondition.Criteria criteria = example.createCriteria();
-                criteria.andNameEqualTo("活着");
+                criteria.andBookNameEqualTo("活着");
                 //criteria.andNameIsNull();
                 //example.setOrderByClause("书名，作者，分类，简介");
                 List<BookDO> bookDOList = springTest.selectByExample(example);
@@ -46,7 +49,7 @@ public class Main {
 
                 if (scanner.next().equals("书名")) {
                     String name = scanner.next();
-                    bookDO.setName(name);
+                    bookDO.setBookName(name);
                 }
                 if (scanner.next().equals("作者")) {
                     String author = scanner.next();
@@ -61,7 +64,7 @@ public class Main {
                     bookDO.setBrief(brief);
                 }
 
-                if (bookDO.getName() == null | bookDO.getAuthor() == null | bookDO.getCatalogue() == null | bookDO.getBrief() == null) {
+                if (bookDO.getBookName() == null | bookDO.getAuthor() == null | bookDO.getCatalogue() == null | bookDO.getBrief() == null) {
                     springTest.insertSelective(bookDO);
                 } else {
                     springTest.insert(bookDO);
@@ -102,3 +105,4 @@ public class Main {
 
     }
 }
+

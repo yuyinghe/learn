@@ -1,11 +1,15 @@
 package cn.hyy.learn.controller;
 
 import cn.hyy.learn.domain.BookDO;
+import cn.hyy.learn.to.resp.RestResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.awt.print.Book;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,15 +27,53 @@ public class IndexController {
 //    例如访问www.baidu.com/s?ie=UTF-8&wd=post  其请求是 /s?ie=UTF-8&wd=post
 //    method 指明请求方式（请求方式一般有get post（新增）put（跟新）delete）
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)    //默认GET查找 POST新增 PUT更新 DELETE 删除
+
+    public static ThreadLocal<StringBuilder> str = new ThreadLocal<>();
+
+    public static int count = 0;
+    public static StringBuilder sb = new StringBuilder();
+
+    @RequestMapping(value = "/")
+    public String showIndex(HttpSession session, HttpServletRequest request) {
+        count++;
+        if (session.getAttribute("name") == null) {
+            session.setAttribute("name", "用户名字"+count);
+        }
+
+        return session.getAttribute("name")
+                + "</br> 当前线程: "+ Thread.currentThread().getName()
+                + "</br> count" + count;
+    }
+
+  /*  public String showIndex() {
+        str.set(new StringBuilder());
+        count++;
+        str.get().append(count).append(" ");
+        sb.append(count).append(" ");
+        return "threadLocal: " + str.get().toString() +
+                "</br>Common: " + sb.toString() +
+                "</br>当前线程: " + Thread.currentThread().getName();
+    }*/
+
+}
+
+  /*  @RequestMapping(value = "/",method = RequestMethod.GET)    //默认GET查找 POST新增 PUT更新 DELETE 删除
     public BookDO showIndex() {
         BookDO book = new BookDO();
-        book.setName("name");
+        book.setBrief("name");
         book.setAuthor("author");
         book.setCatalogue("catalogue");
         book.setBrief("简介");
         return book;
-    }
+    }*/
+
+
+
+   /* static int i;
+    @RequestMapping(value = "/get/api", method = RequestMethod.GET)
+    public static int main(String[] args) {
+        return i++;
+    }*/
 
    /* public Map<String, String> showIndex() {
         Map<String,String> map = new HashMap<String, String>();
@@ -44,4 +86,4 @@ public class IndexController {
 
         return "Hello World1111111111111";
     }*/
-}
+//}

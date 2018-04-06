@@ -1,0 +1,7 @@
+放各种自定义的spring拦截器的包
+
+
+springMVC的过滤器，，，与filter功能相同，但是filter在tomcat中，intercept执行在filter后面
+
+
+一个请求先传给tomcat的filter过滤后传给tomcat里的servlet，处理完后交给springMVC的过滤器intercept
