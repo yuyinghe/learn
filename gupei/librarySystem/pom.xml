@@ -48,7 +48,7 @@
         <!--操作数据库的框架-->
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis</artifactId>
-        <version>3.4.5</version>
+        <version>3.5.6</version>
     </dependency>
     <!--//连接整合spring和mybatics框架-->
     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
