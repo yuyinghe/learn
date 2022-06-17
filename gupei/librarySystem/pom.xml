@@ -99,7 +99,7 @@
         <!--引入json格式框架，使得对象在网页上以json格式展现，类似于java中的toString方法-->
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
-        <version>1.2.7</version>
+        <version>1.2.83</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
